@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from backend.student_manager import add_student, view_students
 from backend.marks_manager import add_marks, view_marks
 
@@ -35,3 +36,24 @@ while True:
 
     else:
         print("Invalid choice!")
+=======
+import streamlit as st
+
+st.set_page_config(
+    page_title="Student Management System",
+    page_icon="🎓",
+    layout="wide"
+)
+
+st.title("🎓 Student Management System")
+
+st.write("""
+Welcome to the Student Management System.
+
+Use the sidebar to navigate:
+- Home
+- Add Student
+- Enter Marks
+- View Results
+""")
+>>>>>>> 8e59598809e59ec169d087b5ce3c371f4fc76b10
