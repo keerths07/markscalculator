@@ -1,31 +1,36 @@
-import streamlit as st
+from pathlib import Path
+
 import pandas as pd
-import os
+import streamlit as st
 
-st.title("➕ Add Student")
+from frontend.components.language_switcher import language_switcher
+from frontend.i18n import t
 
-student_id = st.text_input("Student ID")
-student_name = st.text_input("Student Name")
 
-if st.button("Add Student"):
+DATA_FILE = Path("data/students.csv")
+DATA_FILE.parent.mkdir(exist_ok=True)
 
-    new_student = pd.DataFrame({
-        "Student ID": [student_id],
-        "Name": [student_name]
-    })
+language = language_switcher()
 
-    if os.path.exists("students.csv"):
-        old_data = pd.read_csv("students.csv")
-        updated_data = pd.concat(
-            [old_data, new_student],
-            ignore_index=True
-        )
+st.title(t("student.add_title", language))
+
+student_id = st.text_input(t("student.id", language))
+student_name = st.text_input(t("student.name", language))
+
+if st.button(t("student.add_button", language)):
+    if not student_id.strip() or not student_name.strip():
+        st.warning(t("student.validation", language))
     else:
-        updated_data = new_student
+        new_student = pd.DataFrame({
+            "Student ID": [student_id.strip()],
+            "Name": [student_name.strip()],
+        })
 
-    updated_data.to_csv(
-        "students.csv",
-        index=False
-    )
+        if DATA_FILE.exists():
+            old_data = pd.read_csv(DATA_FILE)
+            updated_data = pd.concat([old_data, new_student], ignore_index=True)
+        else:
+            updated_data = new_student
 
-    st.success("Student Added Successfully!")
+        updated_data.to_csv(DATA_FILE, index=False)
+        st.success(t("student.success", language))

@@ -1,6 +1,7 @@
-student_id,name,class
-1,Vivek,10A
-2,kavya,9A
-3,bharath,11A
-4,struthi,12B
-5,arjun,12C
+student_id,name,class,Student ID,Name
+1.0,Vivek,10A,,
+2.0,kavya,9A,,
+3.0,bharath,11A,,
+4.0,struthi,12B,,
+5.0,arjun,12C,,
+,,,101,bharath

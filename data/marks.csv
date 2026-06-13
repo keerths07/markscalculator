@@ -1,1 +1,2 @@
-student_id,subject,marks
+student_id,subject,marks,Student ID,Maths,Science,English,Total,Percentage
+,,,101,65.0,80.0,99.0,244.0,81.33333333333333

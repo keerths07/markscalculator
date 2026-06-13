@@ -1,15 +1,11 @@
 import streamlit as st
 
-st.title("🏠 Home")
+from frontend.components.language_switcher import language_switcher
+from frontend.i18n import t
 
-st.write("Welcome to the Student Management System")
 
-st.info("""
-This application allows you to:
+language = language_switcher()
 
-✔ Add Students
-
-✔ Enter Student Marks
-
-✔ View Student Results
-""")
+st.title(t("home.title", language))
+st.write(t("home.welcome", language))
+st.info(t("home.description", language))

@@ -1,55 +1,46 @@
-import streamlit as st
+from pathlib import Path
+
 import pandas as pd
-import os
+import streamlit as st
 
-st.title("📝 Enter Marks")
+from frontend.components.language_switcher import language_switcher
+from frontend.i18n import t
 
-student_id = st.text_input("Student ID")
 
-maths = st.number_input(
-    "Maths Marks",
-    min_value=0,
-    max_value=100
-)
+DATA_FILE = Path("data/marks.csv")
+DATA_FILE.parent.mkdir(exist_ok=True)
 
-science = st.number_input(
-    "Science Marks",
-    min_value=0,
-    max_value=100
-)
+language = language_switcher()
 
-english = st.number_input(
-    "English Marks",
-    min_value=0,
-    max_value=100
-)
+st.title(t("marks.title", language))
 
-if st.button("Save Marks"):
+student_id = st.text_input(t("student.id", language))
 
-    total = maths + science + english
-    percentage = total / 3
+maths = st.number_input(t("marks.maths", language), min_value=0, max_value=100)
+science = st.number_input(t("marks.science", language), min_value=0, max_value=100)
+english = st.number_input(t("marks.english", language), min_value=0, max_value=100)
 
-    marks_data = pd.DataFrame({
-        "Student ID": [student_id],
-        "Maths": [maths],
-        "Science": [science],
-        "English": [english],
-        "Total": [total],
-        "Percentage": [percentage]
-    })
-
-    if os.path.exists("marks.csv"):
-        old_data = pd.read_csv("marks.csv")
-        updated_data = pd.concat(
-            [old_data, marks_data],
-            ignore_index=True
-        )
+if st.button(t("marks.save_button", language)):
+    if not student_id.strip():
+        st.warning(t("marks.validation", language))
     else:
-        updated_data = marks_data
+        total = maths + science + english
+        percentage = total / 3
 
-    updated_data.to_csv(
-        "marks.csv",
-        index=False
-    )
+        marks_data = pd.DataFrame({
+            "Student ID": [student_id.strip()],
+            "Maths": [maths],
+            "Science": [science],
+            "English": [english],
+            "Total": [total],
+            "Percentage": [percentage],
+        })
 
-    st.success("Marks Saved Successfully!")
+        if DATA_FILE.exists():
+            old_data = pd.read_csv(DATA_FILE)
+            updated_data = pd.concat([old_data, marks_data], ignore_index=True)
+        else:
+            updated_data = marks_data
+
+        updated_data.to_csv(DATA_FILE, index=False)
+        st.success(t("marks.success", language))
