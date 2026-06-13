@@ -11,3 +11,5 @@ pylint
 flake8
 semgrep
 pyupgrade
+bandit
+pip-audit
