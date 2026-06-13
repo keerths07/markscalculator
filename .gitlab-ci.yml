@@ -1,0 +1,47 @@
+image: python:3.11
+
+stages:
+  - quality
+
+before_script:
+  - pip install -r requirements.txt
+
+ruff:
+  stage: quality
+  script:
+    - ruff check .
+
+mypy:
+  stage: quality
+  script:
+    - mypy .
+
+bandit:
+  stage: quality
+  script:
+    - bandit -r .
+
+flake8:
+  stage: quality
+  script:
+    - flake8 .
+
+pylint:
+  stage: quality
+  script:
+    - pylint app.py
+
+vulture:
+  stage: quality
+  script:
+    - vulture .
+
+semgrep:
+  stage: quality
+  script:
+    - semgrep scan .
+
+pyupgrade:
+  stage: quality
+  script:
+    - python -m pyupgrade --py311-plus app.py
