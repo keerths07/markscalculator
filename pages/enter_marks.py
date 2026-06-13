@@ -1,31 +1,37 @@
-import streamlit as st
-import pandas as pd
 import os
 
-st.title("📝 Enter Marks")
+import pandas as pd
+import streamlit as st
 
-student_id = st.text_input("Student ID")
+from backend.i18n import get_locale, translate
+
+
+locale = get_locale()
+t = lambda key: translate(locale, key)
+
+st.title(t("enter_marks"))
+
+student_id = st.text_input(t("student_id"))
 
 maths = st.number_input(
-    "Maths Marks",
+    t("maths_marks"),
     min_value=0,
-    max_value=100
+    max_value=100,
 )
 
 science = st.number_input(
-    "Science Marks",
+    t("science_marks"),
     min_value=0,
-    max_value=100
+    max_value=100,
 )
 
 english = st.number_input(
-    "English Marks",
+    t("english_marks"),
     min_value=0,
-    max_value=100
+    max_value=100,
 )
 
-if st.button("Save Marks"):
-
+if st.button(t("save_marks")):
     total = maths + science + english
     percentage = total / 3
 
@@ -35,21 +41,21 @@ if st.button("Save Marks"):
         "Science": [science],
         "English": [english],
         "Total": [total],
-        "Percentage": [percentage]
+        "Percentage": [percentage],
     })
 
     if os.path.exists("marks.csv"):
         old_data = pd.read_csv("marks.csv")
         updated_data = pd.concat(
             [old_data, marks_data],
-            ignore_index=True
+            ignore_index=True,
         )
     else:
         updated_data = marks_data
 
     updated_data.to_csv(
         "marks.csv",
-        index=False
+        index=False,
     )
 
-    st.success("Marks Saved Successfully!")
+    st.success(t("marks_saved"))
