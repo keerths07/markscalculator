@@ -1,0 +1,11 @@
+stages:
+  - test
+
+ci_check:
+  stage: test
+  image: python:3.12
+  script:
+    - pip install bandit pip-audit
+    - echo "Running Security Checks"
+    - bandit -r .
+    - pip-audit -r requirements.txt
