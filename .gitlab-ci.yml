@@ -45,3 +45,17 @@ pyupgrade:
   stage: quality
   script:
     - python -m pyupgrade --py311-plus app.py
+
+dependency_audit:
+  stage: quality
+  script:
+    - pip install pip-audit
+    - pip-audit -r requirements.txt
+
+gitleaks:
+  stage: quality
+  image:
+    name: zricethezav/gitleaks:latest
+    entrypoint: [""]
+  script:
+    - gitleaks detect --source . --verbose
