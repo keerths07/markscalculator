@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-import os
+ 
+
 
 import pandas as pd
 import streamlit as st
@@ -22,7 +22,7 @@ if os.path.exists("students.csv") and os.path.exists("marks.csv"):
         marks,
         on="Student ID",
     )
-=======
+
 from pathlib import Path
 
 import pandas as pd
@@ -37,23 +37,23 @@ STUDENTS_FILE = Path("data/students.csv")
 MARKS_FILE = Path("data/marks.csv")
 
 language = language_switcher()
->>>>>>> 8b52ab5aab620069d441cd947d3da60ba3dc8cd1
+
 
 st.title(t("results.title", language))
 
-<<<<<<< HEAD
-    st.subheader(t("ai_insights"))
 
-    ai_provider = st.radio(
+st.subheader(t("ai_insights"))
+
+ai_provider = st.radio(
         t("ai_provider"),
         [t("local_ai"), t("byok")],
         horizontal=True,
     )
 
-    prompt = build_marks_prompt(results.to_csv(index=False))
-    prompt = f"{prompt}\n\nRespond in {language_name(locale)}."
+prompt = build_marks_prompt(results.to_csv(index=False))
+prompt = f"{prompt}\n\nRespond in {language_name(locale)}."
 
-    if ai_provider == t("local_ai"):
+if ai_provider == t("local_ai"):
         ollama_url = st.text_input(t("ollama_url"), value="http://localhost:11434")
         ollama_model = st.text_input(t("ollama_model"), value="llama3.2")
 
@@ -69,7 +69,7 @@ st.title(t("results.title", language))
                 except RuntimeError as error:
                     st.error(str(error))
 
-    else:
+else:
         api_base_url = st.text_input(t("ai_base_url"), value="https://api.openai.com/v1")
         byok_model = st.text_input(t("model"), value="gpt-4.1-mini")
         api_key = st.text_input(t("api_token"), type="password")
@@ -89,10 +89,9 @@ st.title(t("results.title", language))
                         st.write(insights)
                     except RuntimeError as error:
                         st.error(str(error))
+    else:
+st.warning(t("no_data"))
 
-else:
-    st.warning(t("no_data"))
-=======
 if STUDENTS_FILE.exists() and MARKS_FILE.exists():
     students = pd.read_csv(STUDENTS_FILE)
     marks = pd.read_csv(MARKS_FILE)
@@ -120,4 +119,4 @@ if STUDENTS_FILE.exists() and MARKS_FILE.exists():
             st.error(f"{t('results.ai_error', language)} {exc}")
 else:
     st.warning(t("results.no_data", language))
->>>>>>> 8b52ab5aab620069d441cd947d3da60ba3dc8cd1
+

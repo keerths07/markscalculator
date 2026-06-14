@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import os
 
 import pandas as pd
@@ -27,7 +27,7 @@ if st.button(t("add_student_button")):
             [old_data, new_student],
             ignore_index=True,
         )
-=======
+
 from pathlib import Path
 
 import pandas as pd
@@ -50,27 +50,27 @@ student_name = st.text_input(t("student.name", language))
 if st.button(t("student.add_button", language)):
     if not student_id.strip() or not student_name.strip():
         st.warning(t("student.validation", language))
->>>>>>> 8b52ab5aab620069d441cd947d3da60ba3dc8cd1
+
     else:
         new_student = pd.DataFrame({
             "Student ID": [student_id.strip()],
             "Name": [student_name.strip()],
         })
 
-<<<<<<< HEAD
+
     updated_data.to_csv(
         "students.csv",
         index=False,
     )
 
     st.success(t("student_added"))
-=======
-        if DATA_FILE.exists():
+
+    if DATA_FILE.exists():
             old_data = pd.read_csv(DATA_FILE)
             updated_data = pd.concat([old_data, new_student], ignore_index=True)
-        else:
+    else:
             updated_data = new_student
 
-        updated_data.to_csv(DATA_FILE, index=False)
-        st.success(t("student.success", language))
->>>>>>> 8b52ab5aab620069d441cd947d3da60ba3dc8cd1
+            updated_data.to_csv(DATA_FILE, index=False)
+            st.success(t("student.success", language))
+         

@@ -12,3 +12,7 @@ flake8
 semgrep
 pyupgrade
 pip-audit
+
+pytest
+pytest-cov
+coverage

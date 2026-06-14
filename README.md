@@ -173,8 +173,20 @@ If you have run out of energy or time for your project, put a note at the top of
 >>>>>>> 8e59598809e59ec169d087b5ce3c371f4fc76b10
 ## Security
 
-This project uses:
+### Secret Scanning
+This project uses Gitleaks to detect accidentally committed secrets such as API keys, passwords, and tokens.
 
-- Gitleaks for secret scanning
-- pip-audit for dependency auditing
-- Bandit for static security analysis
+Run locally:
+
+```bash
+gitleaks detect --source .
+```
+
+### Dependency Audit
+This project uses pip-audit to identify known vulnerabilities in Python dependencies.
+
+Run locally:
+
+```bash
+pip-audit -r requirements.txt
+```
