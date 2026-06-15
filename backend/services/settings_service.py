@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
 
-
 SETTINGS_FILE = Path("data/settings.json")
 
 DEFAULT_SETTINGS = {

@@ -1,6 +1,5 @@
 import streamlit as st
 
-
 LANGUAGES = {
     "en": "English",
     "hi": "हिन्दी",

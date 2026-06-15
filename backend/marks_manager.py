@@ -1,4 +1,4 @@
-from .database import write_csv, read_csv
+from .database import read_csv, write_csv
 
 
 def add_marks():

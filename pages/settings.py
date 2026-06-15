@@ -4,7 +4,6 @@ from backend.services.settings_service import get_settings, save_settings
 from frontend.components.language_switcher import language_switcher
 from frontend.i18n import LANGUAGE_OPTIONS, t
 
-
 language = language_switcher()
 settings = get_settings()
 
@@ -15,9 +14,10 @@ language_codes = list(LANGUAGE_OPTIONS.values())
 current_language_index = language_codes.index(settings.get("language", language))
 
 selected_language_label = st.selectbox(
-    t("settings.language", language),
+    t("settings.language"),
     language_labels,
     index=current_language_index,
+    key="settings_language"
 )
 
 provider_options = ["Ollama", "OpenAI", "Gemini"]

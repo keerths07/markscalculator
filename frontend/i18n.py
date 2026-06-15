@@ -4,8 +4,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from babel.dates import format_date, format_datetime
-from babel.numbers import format_decimal, format_currency
-
+from babel.numbers import format_currency, format_decimal
 
 LOCALE_DIR = Path("frontend/locales")
 

@@ -1,4 +1,5 @@
-from backend.marks_calculator import calculate_total, calculate_average
+from backend.marks_calculator import calculate_average, calculate_total
+
 
 def generate_report(name, marks):
     total = calculate_total(marks)
