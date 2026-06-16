@@ -29,10 +29,12 @@ if st.button(t("student.add_button", language), key="add_student_submit"):
     if not student_id or not student_name:
         st.warning(t("student.validation", language))
     else:
-        new_student = pd.DataFrame({
-            "Student ID": [student_id],
-            "Name": [student_name],
-        })
+        new_student = pd.DataFrame(
+            {
+                "Student ID": [student_id],
+                "Name": [student_name],
+            }
+        )
 
         if DATA_FILE.exists():
             old_data = pd.read_csv(DATA_FILE)

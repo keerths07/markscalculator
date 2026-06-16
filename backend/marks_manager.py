@@ -23,5 +23,6 @@ def view_marks():
     print("\n===== MARKS LIST =====")
     for i, r in enumerate(records, start=1):
         print(
-            f"{i}. ID: {r['student_id']} | Name: {r['name']} | Subject: {r['subject']} | Marks: {r['marks']}"
+            f"{i}. ID: {r['student_id']} | Name: {r['name']} | "
+            f"Subject: {r['subject']} | Marks: {r['marks']}"
         )

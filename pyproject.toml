@@ -11,3 +11,9 @@ exclude_dirs = ["tests"]
 
 [tool.pylint.main]
 ignore = ["__pycache__"]
+
+[tool.pylint.messages_control]
+disable = [
+    "missing-module-docstring",
+    "missing-function-docstring",
+]

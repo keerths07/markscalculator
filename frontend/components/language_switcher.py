@@ -16,11 +16,11 @@ def language_switcher():
     current_index = codes.index(current_language) if current_language in codes else 0
 
     selected_label = st.sidebar.selectbox(
-    "Language / भाषा / భాష",
-    labels,
-    index=current_index,
-    key="language_selector_add_student"
-)
+        "Language",
+        labels,
+        index=current_index,
+        key="sidebar_language_switcher",
+    )
 
     selected_language = LANGUAGE_OPTIONS[selected_label]
     st.session_state.language = selected_language

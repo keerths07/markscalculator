@@ -1,18 +1,24 @@
-import os
 from pathlib import Path
 
 import pandas as pd
 import streamlit as st
 
-from backend.ai_assistant import (build_marks_prompt, generate_with_byok,
-                                  generate_with_ollama)
+from backend.ai_assistant import (
+    build_marks_prompt,
+    generate_with_byok,
+    generate_with_ollama,
+)
 from backend.i18n import get_locale, language_name, translate
 from backend.services.ai.service import AIService
 from frontend.components.language_switcher import language_switcher
 from frontend.i18n import local_number, t
 
 locale = get_locale()
-translate_text = lambda key: translate(locale, key)
+
+
+def translate_text(key):
+    return translate(locale, key)
+
 
 STUDENTS_FILE = Path("data/students.csv")
 MARKS_FILE = Path("data/marks.csv")
@@ -60,7 +66,6 @@ if STUDENTS_FILE.exists() and MARKS_FILE.exists():
         prompt = f"{prompt}\n\nRespond in {language_name(locale)}."
 
         if ai_provider == translate_text("local_ai"):
-
             ollama_url = st.text_input(
                 translate_text("ollama_url"),
                 value="http://localhost:11434",
@@ -89,7 +94,6 @@ if STUDENTS_FILE.exists() and MARKS_FILE.exists():
                         st.error(str(error))
 
         else:
-
             api_base_url = st.text_input(
                 translate_text("ai_base_url"),
                 value="https://api.openai.com/v1",

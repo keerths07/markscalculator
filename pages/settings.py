@@ -17,7 +17,7 @@ selected_language_label = st.selectbox(
     t("settings.language"),
     language_labels,
     index=current_language_index,
-    key="settings_language"
+    key="settings_language",
 )
 
 provider_options = ["Ollama", "OpenAI", "Gemini"]

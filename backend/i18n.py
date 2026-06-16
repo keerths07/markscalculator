@@ -6,24 +6,20 @@ LANGUAGES = {
     "te": "తెలుగు",
 }
 
-
 TRANSLATIONS = {
     "en": {
-"home": "Home",
-"add_student": "Add Student",
-"home.title": "Home",
-"home.welcome": "Welcome to the Student Management System",
-"home.info": "Use the sidebar to manage students and marks",
-
-"home_features": (
-    "This application allows you to:\n\n"
-    "- Add Students\n"
-    "- Enter Student Marks\n"
-    "- View Student Results\n"
-    "- Generate AI-powered performance insights"
-),
-
-        
+        "home": "Home",
+        "add_student": "Add Student",
+        "home.title": "Home",
+        "home.welcome": "Welcome to the Student Management System",
+        "home.info": "Use the sidebar to manage students and marks",
+        "home_features": (
+            "This application allows you to:\n\n"
+            "- Add Students\n"
+            "- Enter Student Marks\n"
+            "- View Student Results\n"
+            "- Generate AI-powered performance insights"
+        ),
         "local_ai": "Local AI Inference (Ollama)",
         "marks_saved": "Marks Saved Successfully!",
         "maths_marks": "Maths Marks",
@@ -133,7 +129,6 @@ def get_locale():
 
 def translate(locale, key):
     return TRANSLATIONS.get(locale, TRANSLATIONS["en"]).get(key, key)
-    
 
 
 def language_name(locale):
