@@ -54,13 +54,15 @@ if st.button(t("settings.save_button", language)):
         selected_provider: api_key,
     }
 
-    save_settings({
-        "language": selected_language,
-        "ai_provider": selected_provider,
-        "model": model,
-        "ollama_url": ollama_url,
-        "api_keys": updated_api_keys,
-    })
+    save_settings(
+        {
+            "language": selected_language,
+            "ai_provider": selected_provider,
+            "model": model,
+            "ollama_url": ollama_url,
+            "api_keys": updated_api_keys,
+        }
+    )
 
     st.session_state.language = selected_language
     st.success(t("settings.success", selected_language))

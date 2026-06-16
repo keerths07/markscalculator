@@ -57,4 +57,6 @@ def _post_json(url, payload, headers=None):
         details = error.read().decode("utf-8", errors="replace")
         raise RuntimeError(f"AI service returned {error.code}: {details}") from error
     except URLError as error:
-        raise RuntimeError(f"Could not connect to AI service: {error.reason}") from error
+        raise RuntimeError(
+            f"Could not connect to AI service: {error.reason}"
+        ) from error

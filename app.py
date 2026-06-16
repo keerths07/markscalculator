@@ -21,4 +21,3 @@ st.title(f"🎓 {t('app.title', language)}")
 
 st.write(t("home.welcome", language))
 st.info(t("home.description", language))
-

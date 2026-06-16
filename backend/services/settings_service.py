@@ -8,10 +8,7 @@ DEFAULT_SETTINGS = {
     "ai_provider": "Ollama",
     "model": "llama3",
     "ollama_url": "http://localhost:11434",
-    "api_keys": {
-        "OpenAI": "",
-        "Gemini": ""
-    }
+    "api_keys": {"OpenAI": "", "Gemini": ""},
 }
 
 

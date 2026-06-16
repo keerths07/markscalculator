@@ -6,7 +6,7 @@ def add_marks():
         "student_id": input("Enter Student ID: "),
         "name": input("Enter Name: "),
         "subject": input("Enter Subject: "),
-        "marks": input("Enter Marks: ")
+        "marks": input("Enter Marks: "),
     }
 
     write_csv(student)
@@ -22,4 +22,6 @@ def view_marks():
 
     print("\n===== MARKS LIST =====")
     for i, r in enumerate(records, start=1):
-        print(f"{i}. ID: {r['student_id']} | Name: {r['name']} | Subject: {r['subject']} | Marks: {r['marks']}")
+        print(
+            f"{i}. ID: {r['student_id']} | Name: {r['name']} | Subject: {r['subject']} | Marks: {r['marks']}"
+        )

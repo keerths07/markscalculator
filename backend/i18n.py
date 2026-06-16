@@ -9,28 +9,21 @@ LANGUAGES = {
 
 TRANSLATIONS = {
     "en": {
-        "add_student": "Add Student",
-        "add_student_button": "Add Student",
-        "ai_base_url": "API base URL",
-        "ai_insights": "AI Insights",
-        "ai_provider": "AI provider",
-        "api_token": "API token",
-        "byok": "BYOK - Bring Your Own Token",
-        "english_marks": "English Marks",
-        "enter_api_token": "Enter your API token to use BYOK.",
-        "enter_marks": "Enter Marks",
-        "generate_ai_insights": "Generate AI Insights",
-        "generating_byok": "Generating insights with your token...",
-        "generating_local": "Generating insights with local AI...",
-        "home": "Home",
-        "home_intro": "Welcome to the Student Management System",
-        "home_features": (
-            "This application allows you to:\n\n"
-            "- Add Students\n"
-            "- Enter Student Marks\n"
-            "- View Student Results\n"
-            "- Generate AI-powered performance insights"
-        ),
+"home": "Home",
+"add_student": "Add Student",
+"home.title": "Home",
+"home.welcome": "Welcome to the Student Management System",
+"home.info": "Use the sidebar to manage students and marks",
+
+"home_features": (
+    "This application allows you to:\n\n"
+    "- Add Students\n"
+    "- Enter Student Marks\n"
+    "- View Student Results\n"
+    "- Generate AI-powered performance insights"
+),
+
+        
         "local_ai": "Local AI Inference (Ollama)",
         "marks_saved": "Marks Saved Successfully!",
         "maths_marks": "Maths Marks",
@@ -132,13 +125,15 @@ def get_locale():
         options=locales,
         format_func=lambda locale: LANGUAGES[locale],
         index=locales.index(st.session_state.locale),
+        key="backend_locale_switcher",
     )
     st.session_state.locale = selected
     return selected
 
 
 def translate(locale, key):
-    return TRANSLATIONS.get(locale, TRANSLATIONS["en"]).get(key, TRANSLATIONS["en"][key])
+    return TRANSLATIONS.get(locale, TRANSLATIONS["en"]).get(key, key)
+    
 
 
 def language_name(locale):
