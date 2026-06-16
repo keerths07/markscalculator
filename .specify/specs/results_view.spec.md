@@ -12,3 +12,6 @@ Display student performance results.
 ## Rules
 - Data must come from backend only
 - No calculation in UI layer
+## Implementation Mapping
+
+- pages/view_results.py → Displays student results

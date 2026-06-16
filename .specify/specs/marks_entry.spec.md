@@ -13,3 +13,6 @@ Handle entering marks for students.
 - Must use Streamlit inputs
 - Each widget must have unique key
 - No business logic in UI file
+## Implementation Mapping
+
+- pages/enter_marks.py → UI for entering student marks## Implementation Mapping

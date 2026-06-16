@@ -17,3 +17,6 @@
 * Use Streamlit components
 * Avoid duplicate widget IDs (use key parameter)
 
+## Implementation Mapping
+
+- backend/student_manager.py → Handles adding and viewing students

@@ -14,4 +14,7 @@ Generate student performance reports.
 
 * Must use computed marks only
 * No direct UI logic inside report module
+## Implementation Mapping
+
+- backend/report_generator.py → Generates student reports
 

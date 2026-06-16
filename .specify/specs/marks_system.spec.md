@@ -15,4 +15,6 @@ Handle calculation of student marks and grades.
 
 * Marks must be between 0 and 100
 * Invalid input must be rejected
+## Implementation Mapping
 
+- backend/marks_manager.py → Calculates total, percentage, grade
