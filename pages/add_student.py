@@ -1,4 +1,3 @@
-
 from pathlib import Path
 
 import pandas as pd
@@ -14,27 +13,45 @@ language = language_switcher()
 
 st.title(t("student.add_title", language))
 
-student_id = st.text_input(t("student.id", language))
-student_name = st.text_input(t("student.name", language))
+student_id = st.text_input(
+    t("student.id", language),
+    key="add_student_id",
+)
 
-if st.button(t("student.add_button", language)):
-    if not student_id.strip() or not student_name.strip():
+student_name = st.text_input(
+    t("student.name", language),
+    key="add_student_name",
+)
+
+student_class = st.text_input(
+    "Class",
+    key="add_student_class",
+)
+
+if st.button(t("student.add_button", language), key="add_student_submit"):
+    student_id = student_id.strip()
+    student_name = student_name.strip()
+    student_class = student_class.strip()
+
+    if not student_id or not student_name:
         st.warning(t("student.validation", language))
     else:
         new_student = pd.DataFrame(
-            
-               {
-    "student_id": [student_id.strip()],
-    "name": [student_name.strip()],
-    "class": [""]
-}
+            {
+                "Student ID": [student_id],
+                "Name": [student_name],
+                "Class": [student_class],
+            }
         )
 
         if DATA_FILE.exists():
             old_data = pd.read_csv(DATA_FILE)
-            updated_data = pd.concat([old_data, new_student], ignore_index=True)
+            updated_data = pd.concat(
+                [old_data, new_student],
+                ignore_index=True,
+            )
         else:
             updated_data = new_student
 
         updated_data.to_csv(DATA_FILE, index=False)
-        st.success(t("student_added", language))
+        st.success(t("student.success", language))
