@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 📌 Project Overview
 
 This is a Python-based Student Feedback and Marks Management System.
@@ -76,7 +76,7 @@ Created by: Your Name
 📌 License
 
 This project is for educational purposes only.
-=======
+
 # marks_calculator
 
 
@@ -169,8 +169,7 @@ Show your appreciation to those who have contributed to the project.
 For open source projects, say how it is licensed.
 
 ## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
->>>>>>> 8e59598809e59ec169d087b5ce3c371f4fc76b10
+If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers
 ## Security
 
 ### Secret Scanning
