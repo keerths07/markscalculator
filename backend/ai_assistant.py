@@ -3,7 +3,7 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 
-#def build_marks_prompt(results_text):
+def build_marks_prompt(results_text):
     return (
         "You are an assistant for a student marks calculator app. "
         "Analyze the marks table and give concise, practical insights: "
@@ -12,8 +12,7 @@ from urllib.request import Request, urlopen
         f"Marks data:\n{results_text}"
     )
 
-
-#def generate_with_ollama(prompt, model="llama3.2", base_url="http://localhost:11434"):
+def generate_with_ollama(prompt, model="llama3.2", base_url="http://localhost:11434"):
     url = f"{base_url.rstrip('/')}/api/chat"
     payload = {
         "model": model,
@@ -25,7 +24,7 @@ from urllib.request import Request, urlopen
     return data.get("message", {}).get("content", "").strip()
 
 
-#def generate_with_byok(prompt, api_key, model, base_url="https://api.openai.com/v1"):
+def generate_with_byok(prompt, api_key, model, base_url="https://api.openai.com/v1"):
     url = f"{base_url.rstrip('/')}/chat/completions"
     payload = {
         "model": model,
