@@ -1,9 +1,10 @@
 # Project Constitution
 
-This project follows Spec-Kit (Spec-Driven Development).
+This project follows:
 
-## Rules
-- Every feature must have a spec before implementation
-- Keep Streamlit UI clean and minimal
-- Avoid duplicate widgets (use keys in Streamlit)
-- Separate backend logic from frontend UI
+- Clean Code principles
+- Secure coding practices
+- Modular Python architecture
+- Automated CI/CD pipeline (GitLab)
+- Test-driven development using pytest
+- Static analysis enforced via CI tools

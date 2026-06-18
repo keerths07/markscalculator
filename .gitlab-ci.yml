@@ -8,28 +8,54 @@ stages:
   - coverage
 
 before_script:
+  - pip install --upgrade pip
   - pip install -r requirements.txt
 
+# ---------------- TEST ----------------
 test:
   stage: test
   script:
-    - python -m unittest discover
+    - pip install pytest
+    - pytest -v
 
+# ---------------- LINT ----------------
 ruff:
   stage: lint
   script:
+    - pip install ruff
     - ruff check .
 
 flake8:
   stage: lint
   script:
+    - pip install flake8
     - flake8 .
+
+pylint:
+  stage: lint
+  script:
+    - pip install pylint
+    - pylint backend frontend
 
 bandit:
   stage: lint
   script:
-    - bandit -r .
+    - pip install bandit
+    - bandit -r backend
 
+vulture:
+  stage: lint
+  script:
+    - pip install vulture
+    - vulture backend frontend
+
+semgrep:
+  stage: lint
+  script:
+    - pip install semgrep
+    - semgrep --config auto backend
+
+# ---------------- SECURITY SCAN ----------------
 gitleaks:
   stage: lint
   image:
@@ -38,23 +64,24 @@ gitleaks:
   script:
     - gitleaks detect --source . --verbose
 
+# ---------------- FORMAT ----------------
 pyupgrade:
   stage: format
   script:
-    - python -m pyupgrade --py311-plus app.py
+    - pip install pyupgrade
+    - pyupgrade --py311-plus backend frontend
 
+# ---------------- TYPE CHECK ----------------
 mypy:
   stage: type_check
   script:
-    - mypy .
+    - pip install mypy types-requests
+    - mypy backend frontend
 
+# ---------------- COVERAGE ----------------
 coverage:
   stage: coverage
   script:
-    - echo "Coverage stage configured"
-
-dependency_audit:
-  stage: coverage
-  script:
-    - pip install pip-audit
-    - pip-audit -r requirements.txt
+    - pip install pytest coverage
+    - coverage run -m pytest
+    - coverage report
