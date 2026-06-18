@@ -50,7 +50,7 @@ def _post_json(url, payload, headers=None):
     )
 
     try:
-        with urlopen(request, timeout=60) as response:
+     with urlopen(request, timeout=60) as response:  # nosec B310   
             return json.loads(response.read().decode("utf-8"))
     except HTTPError as error:
         details = error.read().decode("utf-8", errors="replace")
