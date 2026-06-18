@@ -80,7 +80,9 @@ TRANSLATIONS = {
         "api_token": "API టోకెన్",
         "byok": "BYOK - మీ స్వంత టోకెన్ ఉపయోగించండి",
         "english_marks": "ఇంగ్లీష్ మార్కులు",
-        "enter_api_token": "BYOK ఉపయోగించడానికి మీ API టోకెన్ నమోదు చేయండి.",
+        "enter_api_token": (
+    "BYOK ఉపయోగించడానికి మీ API టోకెన్ నమోదు చేయండి."
+),  # nosec B105
         "enter_marks": "మార్కులు నమోదు చేయండి",
         "generate_ai_insights": "AI సూచనలు రూపొందించండి",
         "generating_byok": "మీ టోకెన్‌తో సూచనలు రూపొందిస్తున్నాం...",
