@@ -40,10 +40,10 @@ TRANSLATIONS = {
         "ai_base_url": "API बेस URL",
         "ai_insights": "AI सुझाव",
         "ai_provider": "AI प्रदाता",
-        "api_token": "API टोकन",
+        "api_credential": "API क्रेडेंशियल",
         "byok": "BYOK - अपना टोकन उपयोग करें",
         "english_marks": "अंग्रेज़ी अंक",
-        "enter_api_token": "BYOK उपयोग करने के लिए अपना API टोकन दर्ज करें।",
+        "enter_api_credential": "BYOK उपयोग करने के लिए अपनी API जानकारी दर्ज करें।",
         "enter_marks": "अंक दर्ज करें",
         "generate_ai_insights": "AI सुझाव बनाएं",
         "generating_byok": "आपके टोकन से सुझाव बनाए जा रहे हैं...",
@@ -77,12 +77,10 @@ TRANSLATIONS = {
         "ai_base_url": "API బేస్ URL",
         "ai_insights": "AI సూచనలు",
         "ai_provider": "AI ప్రొవైడర్",
-        "api_token": "API టోకెన్",
+        "api_credential": "API వివరాలు",
         "byok": "BYOK - మీ స్వంత టోకెన్ ఉపయోగించండి",
         "english_marks": "ఇంగ్లీష్ మార్కులు",
-        "enter_api_token": (
-    "BYOK ఉపయోగించడానికి మీ API టోకెన్ నమోదు చేయండి."
-),  # nosec B105
+        "enter_api_credential": "BYOK ఉపయోగించడానికి మీ API వివరాలు నమోదు చేయండి.",
         "enter_marks": "మార్కులు నమోదు చేయండి",
         "generate_ai_insights": "AI సూచనలు రూపొందించండి",
         "generating_byok": "మీ టోకెన్‌తో సూచనలు రూపొందిస్తున్నాం...",
